@@ -1,0 +1,586 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow, noarchive">
+<title>Skyy Distribuidora — Adega, bebidas geladas e congelados em São Bernardo</title>
+<meta name="description" content="Cervejas geladas, destilados, gelo, carvão e congelados no Santa Terezinha, São Bernardo do Campo. Delivery e retirada. Peça pelo WhatsApp.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🧊</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;600;800&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --night:#070B18;
+    --night-2:#0D1430;
+    --night-3:#141E45;
+    --blue:#2F7BFF;
+    --cyan:#7FE3FF;
+    --ice:#E6F8FF;
+    --amber:#FFB43D;
+    --text:#E9EEFF;
+    --muted:#9AA6C8;
+    --line:rgba(160,185,255,.14);
+    --radius:22px;
+    --wrap:1240px;
+    --ease:cubic-bezier(.2,.7,.2,1);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{background:var(--night);color:var(--text);font-family:Manrope,system-ui,sans-serif;font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  body.locked{overflow:hidden}
+  img{display:block;max-width:100%}
+  a{color:inherit;text-decoration:none}
+  button{font:inherit}
+  .wrap{max-width:var(--wrap);margin:0 auto;padding:0 28px}
+  h1,h2,h3{font-family:Unbounded,system-ui,sans-serif;font-weight:800;letter-spacing:-.03em;line-height:1.02}
+  h2{font-size:clamp(32px,4.6vw,58px)}
+  .grad{background:linear-gradient(100deg,var(--cyan),var(--blue) 70%);-webkit-background-clip:text;background-clip:text;color:transparent}
+  .eyebrow{display:inline-flex;align-items:center;gap:10px;font-size:12.5px;letter-spacing:.2em;text-transform:uppercase;font-weight:700;color:var(--cyan)}
+  .eyebrow::before{content:"";width:22px;height:2px;background:linear-gradient(90deg,var(--cyan),var(--blue));border-radius:2px}
+
+  /* starfield background */
+  .sky{position:fixed;inset:0;z-index:-1;pointer-events:none;background:
+    radial-gradient(1200px 600px at 85% -10%,rgba(47,123,255,.22),transparent 60%),
+    radial-gradient(900px 500px at -10% 30%,rgba(127,227,255,.10),transparent 60%),
+    var(--night)}
+  .sky::after{content:"";position:absolute;inset:0;opacity:.55;background-image:
+    radial-gradient(1px 1px at 20px 30px,#fff,transparent),radial-gradient(1px 1px at 120px 80px,#cfe6ff,transparent),
+    radial-gradient(1.5px 1.5px at 200px 160px,#fff,transparent),radial-gradient(1px 1px at 280px 40px,#bcd7ff,transparent),
+    radial-gradient(1px 1px at 340px 220px,#fff,transparent),radial-gradient(1.2px 1.2px at 60px 260px,#e1efff,transparent);
+    background-size:380px 300px}
+
+  .proposal{background:linear-gradient(90deg,#11204F,#1A2F6E);color:#DCE6FF;font-size:13px;text-align:center;padding:9px 16px}
+  .proposal b{color:var(--amber);font-weight:700}
+
+  /* Nav */
+  .nav{position:sticky;top:0;z-index:50;background:rgba(7,11,24,.72);backdrop-filter:saturate(1.4) blur(16px);-webkit-backdrop-filter:saturate(1.4) blur(16px);border-bottom:1px solid transparent;transition:border-color .3s}
+  .nav.scrolled{border-bottom-color:var(--line)}
+  .nav .wrap{display:flex;align-items:center;justify-content:space-between;height:76px;gap:24px}
+  .logo{display:flex;align-items:center;gap:12px}
+  .logo-mark{font-family:Unbounded,sans-serif;font-weight:800;font-size:26px;letter-spacing:.02em;line-height:1;position:relative}
+  .logo-mark i{font-style:normal;color:var(--cyan)}
+  .logo-mark::after{content:"✦";position:absolute;top:-8px;right:-14px;font-size:12px;color:var(--amber)}
+  .logo small{display:block;font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);margin-top:4px;font-weight:600}
+  .menu{display:flex;gap:30px;font-size:15px;font-weight:600;color:#C9D3F2}
+  .menu a{position:relative;padding:4px 0;transition:color .2s}
+  .menu a:hover{color:#fff}
+  .menu a::after{content:"";position:absolute;left:0;bottom:-3px;height:2px;width:100%;background:var(--cyan);border-radius:2px;transform:scaleX(0);transform-origin:left;transition:transform .35s var(--ease)}
+  .menu a:hover::after{transform:scaleX(1)}
+  .btn{display:inline-flex;align-items:center;gap:10px;border-radius:999px;padding:14px 24px;font-weight:800;font-size:15px;transition:transform .25s var(--ease),box-shadow .25s,background .25s;white-space:nowrap;border:0;cursor:pointer}
+  .btn svg{width:18px;height:18px;flex:none}
+  .btn-primary{background:linear-gradient(100deg,var(--blue),#5A9BFF);color:#fff;box-shadow:0 10px 30px -10px rgba(47,123,255,.8)}
+  .btn-primary:hover{transform:translateY(-2px);box-shadow:0 16px 36px -10px rgba(47,123,255,.95)}
+  .btn-ice{background:var(--ice);color:var(--night)}
+  .btn-ice:hover{background:#fff;transform:translateY(-2px)}
+  .btn-ghost{background:transparent;border:1.5px solid rgba(233,238,255,.35);color:#fff}
+  .btn-ghost:hover{background:rgba(255,255,255,.08);border-color:#fff}
+  .burger{display:none;background:none;border:0;width:44px;height:44px;cursor:pointer;color:#fff}
+  .burger svg{width:26px;height:26px}
+
+  /* Status pill */
+  .status{display:inline-flex;align-items:center;gap:9px;font-size:13.5px;font-weight:700;padding:8px 14px;border-radius:999px;background:rgba(255,255,255,.08);border:1px solid var(--line)}
+  .status .dot{width:9px;height:9px;border-radius:50%;background:#7a849f}
+  .status.open .dot{background:#3BE38B;box-shadow:0 0 0 0 rgba(59,227,139,.7);animation:ping 2s infinite}
+  .status.open{color:#B9F7D5}
+  .status.closed{color:#FFC9C9}
+  .status.closed .dot{background:#FF6B6B}
+  @keyframes ping{70%{box-shadow:0 0 0 10px rgba(59,227,139,0)}100%{box-shadow:0 0 0 0 rgba(59,227,139,0)}}
+
+  /* Hero */
+  .hero{padding:24px 0 0}
+  .hero-frame{position:relative;border-radius:30px;overflow:hidden;min-height:min(84vh,760px);display:flex;align-items:flex-end;background:linear-gradient(135deg,#14224F,#070B18);border:1px solid var(--line)}
+  .hero-frame img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:75% 50%;transform:scale(1.05);animation:heroZoom 14s var(--ease) forwards}
+  @keyframes heroZoom{to{transform:scale(1)}}
+  .hero-frame::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(7,11,24,.94) 0%,rgba(7,11,24,.7) 40%,rgba(7,11,24,.05) 75%),linear-gradient(0deg,rgba(7,11,24,.6),transparent 40%)}
+  .hero-copy{position:relative;z-index:2;padding:clamp(28px,6vw,76px);max-width:720px}
+  .hero h1{font-size:clamp(38px,5vw,70px);margin:22px 0 22px}
+  .hero p.lead{font-size:clamp(17px,1.5vw,20px);color:#C9D3F2;max-width:540px}
+  .hero-ctas{display:flex;flex-wrap:wrap;gap:14px;margin-top:32px}
+  .hero-meta{display:flex;flex-wrap:wrap;gap:12px;align-items:center}
+  .rating{position:absolute;z-index:3;right:clamp(16px,3vw,40px);top:clamp(16px,3vw,40px);background:rgba(13,20,48,.78);backdrop-filter:blur(12px);border:1px solid var(--line);border-radius:20px;padding:16px 20px;display:flex;gap:14px;align-items:center}
+  .rating b{font-family:Unbounded,sans-serif;font-size:36px;line-height:1}
+  .stars{color:var(--amber);letter-spacing:2px;font-size:14px}
+  .rating small{display:block;font-size:13px;color:var(--muted)}
+
+  /* Marquee */
+  .marquee{margin-top:56px;border-block:1px solid var(--line);padding:20px 0;overflow:hidden;background:rgba(13,20,48,.5)}
+  .marquee-track{display:flex;width:max-content;animation:mq 34s linear infinite}
+  .marquee span{font-family:Unbounded,sans-serif;font-weight:600;font-size:clamp(18px,2.2vw,26px);display:flex;align-items:center;gap:30px;padding-right:30px;white-space:nowrap;color:#C9D3F2}
+  .marquee span::after{content:"✦";color:var(--cyan);font-size:.7em}
+  @keyframes mq{to{transform:translateX(-50%)}}
+
+  section{padding:clamp(80px,10vw,130px) 0}
+  .section-head{display:flex;justify-content:space-between;align-items:flex-end;gap:32px;margin-bottom:52px;flex-wrap:wrap}
+  .section-head h2{margin-top:16px;max-width:720px}
+  .section-head p{max-width:420px;color:var(--muted)}
+
+  /* Categories */
+  .cat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+  .cat{position:relative;border-radius:var(--radius);padding:30px 28px;background:linear-gradient(160deg,var(--night-3),var(--night-2));border:1px solid var(--line);overflow:hidden;transition:transform .45s var(--ease),border-color .3s;isolation:isolate;min-height:230px;display:flex;flex-direction:column}
+  .cat::before{content:"";position:absolute;width:220px;height:220px;right:-70px;top:-70px;border-radius:50%;background:radial-gradient(circle,var(--glow,rgba(47,123,255,.35)),transparent 70%);z-index:-1;transition:transform .6s var(--ease)}
+  .cat:hover{transform:translateY(-6px);border-color:rgba(127,227,255,.4)}
+  .cat:hover::before{transform:scale(1.3)}
+  .cat .ic{width:54px;height:54px;border-radius:16px;display:grid;place-items:center;background:rgba(255,255,255,.07);margin-bottom:auto}
+  .cat .ic svg{width:28px;height:28px}
+  .cat h3{font-size:22px;margin-top:26px}
+  .cat p{color:var(--muted);font-size:15px;margin-top:6px}
+  .cat .go{position:absolute;right:24px;bottom:26px;width:40px;height:40px;border-radius:50%;display:grid;place-items:center;background:rgba(255,255,255,.08);transition:all .3s var(--ease)}
+  .cat:hover .go{background:var(--cyan);color:var(--night);transform:rotate(-45deg)}
+  .cat .go svg{width:18px;height:18px}
+
+  /* Combos */
+  .combos{display:grid;grid-template-columns:1fr 1.15fr;gap:22px;align-items:stretch}
+  .combo-img{position:relative;border-radius:28px;overflow:hidden;min-height:560px;background:var(--night-3);border:1px solid var(--line)}
+  .combo-img img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+  .combo-img .tag{position:absolute;left:22px;top:22px;background:var(--amber);color:var(--night);font-weight:800;font-size:13px;padding:8px 14px;border-radius:999px}
+  .combo-list{display:grid;gap:16px}
+  .combo{display:flex;gap:20px;align-items:center;padding:24px 26px;border-radius:20px;background:rgba(20,30,69,.6);border:1px solid var(--line);transition:transform .35s var(--ease),background .3s,border-color .3s}
+  .combo:hover{transform:translateX(6px);background:rgba(28,42,96,.75);border-color:rgba(127,227,255,.35)}
+  .combo .num{font-family:Unbounded,sans-serif;font-size:30px;font-weight:800;color:transparent;-webkit-text-stroke:1.2px var(--cyan);flex:none;width:58px}
+  .combo h3{font-size:20px}
+  .combo p{color:var(--muted);font-size:15px;margin-top:4px}
+  .combo .cta{margin-left:auto;flex:none;font-weight:800;font-size:14px;color:var(--cyan);display:flex;align-items:center;gap:6px}
+  .combo .cta svg{width:16px;height:16px}
+  .combo-note{color:var(--muted);font-size:14px;margin-top:6px}
+
+  /* Delivery */
+  .delivery{position:relative;border-radius:30px;overflow:hidden;display:grid;grid-template-columns:1.1fr 1fr;background:linear-gradient(120deg,#123AA8,#2F7BFF 60%,#58B8FF);color:#fff}
+  .delivery-copy{padding:clamp(34px,5vw,68px)}
+  .delivery-copy .eyebrow{color:#fff}
+  .delivery-copy .eyebrow::before{background:#fff}
+  .delivery-copy h2{margin-top:16px}
+  .delivery-copy p{color:rgba(255,255,255,.85);margin-top:16px;max-width:460px}
+  .dsteps{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:30px 0 32px}
+  .dstep{background:rgba(7,11,24,.22);border:1px solid rgba(255,255,255,.18);border-radius:16px;padding:16px}
+  .dstep b{font-family:Unbounded,sans-serif;font-size:13px;color:var(--ice);display:block;margin-bottom:6px}
+  .dstep span{font-size:14.5px;font-weight:600;line-height:1.35;display:block}
+  .delivery-img{position:relative;min-height:420px}
+  .delivery-img img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+  .delivery-img::before{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(90deg,rgba(47,123,255,1),rgba(47,123,255,0) 30%)}
+
+  /* Hours */
+  .hours-grid{display:grid;grid-template-columns:1fr 1.1fr;gap:22px}
+  .hours-card{border-radius:26px;background:linear-gradient(160deg,var(--night-3),var(--night-2));border:1px solid var(--line);padding:clamp(28px,4vw,48px)}
+  .hours-card h2{font-size:clamp(28px,3.4vw,42px);margin:16px 0 22px}
+  .hours{list-style:none;display:grid;gap:4px}
+  .hours li{display:flex;justify-content:space-between;padding:13px 16px;border-radius:12px;font-weight:600;color:#C9D3F2}
+  .hours li span:last-child{font-variant-numeric:tabular-nums}
+  .hours li.today{background:rgba(127,227,255,.1);color:#fff;outline:1px solid rgba(127,227,255,.35)}
+  .hours li.off span:last-child{color:#FF9B9B}
+  .info-card{border-radius:26px;background:rgba(13,20,48,.6);border:1px solid var(--line);padding:clamp(28px,4vw,48px);display:flex;flex-direction:column;gap:22px}
+  .info{display:grid;gap:20px}
+  .info>div{display:flex;gap:16px;align-items:flex-start}
+  .info svg{width:22px;height:22px;flex:none;color:var(--cyan);margin-top:3px}
+  .info b{display:block;color:#fff}
+  .info span,.info a{color:var(--muted);font-size:15.5px}
+  .info a:hover{color:#fff}
+  .pays{display:flex;flex-wrap:wrap;gap:10px}
+  .pays span{font-size:13.5px;font-weight:700;padding:8px 14px;border-radius:999px;background:rgba(255,255,255,.07);border:1px solid var(--line)}
+  .map{border-radius:20px;overflow:hidden;min-height:260px;flex:1;border:1px solid var(--line)}
+  .map iframe{width:100%;height:100%;min-height:260px;border:0;filter:invert(.9) hue-rotate(180deg) saturate(.6) brightness(.95)}
+
+  /* Reviews */
+  .rev-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:18px}
+  .rev{border-radius:var(--radius);padding:30px;background:rgba(20,30,69,.55);border:1px solid var(--line);display:flex;flex-direction:column;justify-content:space-between;gap:24px}
+  .rev q{font-family:Unbounded,sans-serif;font-weight:600;font-size:clamp(19px,1.8vw,24px);line-height:1.3;letter-spacing:-.02em}
+  .rev .who{display:flex;align-items:center;gap:10px;font-size:14px;color:var(--muted)}
+  .g{width:28px;height:28px;border-radius:50%;background:#fff;display:grid;place-items:center;font-weight:800;font-size:14px;color:#4285F4}
+  .rev.score{background:linear-gradient(150deg,#1E3D9C,#2F7BFF);border:0;justify-content:center;align-items:flex-start}
+  .rev.score b{font-family:Unbounded,sans-serif;font-size:clamp(64px,7vw,96px);line-height:.9}
+  .rev.score .stars{font-size:22px;margin:10px 0 6px}
+  .rev.score span{color:rgba(255,255,255,.85)}
+
+  /* CTA */
+  .cta-band{padding:0 0 clamp(80px,10vw,120px)}
+  .band{border-radius:30px;padding:clamp(40px,6vw,80px);display:flex;justify-content:space-between;align-items:center;gap:32px;flex-wrap:wrap;background:radial-gradient(600px 300px at 90% 0%,rgba(127,227,255,.25),transparent 70%),linear-gradient(140deg,var(--night-3),#0A1230);border:1px solid var(--line)}
+  .band h2{max-width:640px}
+
+  footer{border-top:1px solid var(--line);padding:48px 0 40px;font-size:14px;color:var(--muted)}
+  footer .wrap{display:flex;justify-content:space-between;gap:28px;flex-wrap:wrap;align-items:center}
+  .legal{width:100%;text-align:center;font-size:13px;font-weight:700;letter-spacing:.04em;color:#C9D3F2;padding-top:24px;margin-top:8px;border-top:1px solid var(--line)}
+  .legal span{color:var(--amber)}
+
+  .fab{position:fixed;right:22px;bottom:22px;z-index:60;width:62px;height:62px;border-radius:50%;background:#25D366;color:#fff;display:grid;place-items:center;box-shadow:0 14px 30px -10px rgba(37,211,102,.7);transition:transform .3s var(--ease)}
+  .fab:hover{transform:scale(1.08)}
+  .fab svg{width:30px;height:30px}
+  .fab::before{content:"";position:absolute;inset:0;border-radius:50%;border:2px solid #25D366;animation:pulse 2.4s infinite}
+  @keyframes pulse{0%{transform:scale(1);opacity:.8}100%{transform:scale(1.55);opacity:0}}
+
+  /* Age gate */
+  .gate{position:fixed;inset:0;z-index:100;display:grid;place-items:center;padding:20px;background:rgba(4,7,16,.82);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px)}
+  .gate[hidden]{display:none}
+  .gate-card{max-width:440px;width:100%;text-align:center;border-radius:26px;padding:38px 30px;background:linear-gradient(160deg,var(--night-3),var(--night-2));border:1px solid var(--line);box-shadow:0 40px 80px -30px rgba(0,0,0,.8)}
+  .gate-card .logo-mark{font-size:34px;display:inline-block}
+  .gate-card h2{font-size:24px;margin:22px 0 10px}
+  .gate-card p{color:var(--muted);font-size:15px}
+  .gate-actions{display:flex;gap:12px;justify-content:center;margin-top:26px;flex-wrap:wrap}
+  .gate-no{display:none;margin-top:16px;color:#FFC9C9;font-weight:600;font-size:14px}
+
+  .reveal{opacity:0;transform:translateY(26px);transition:opacity .9s var(--ease),transform .9s var(--ease)}
+  .reveal.in{opacity:1;transform:none}
+
+  .mobile-menu{display:none}
+  @media (max-width:1020px){
+    .menu,.nav .btn{display:none}
+    .burger{display:grid;place-items:center}
+    .mobile-menu{position:fixed;left:0;right:0;top:76px;background:rgba(7,11,24,.97);border-bottom:1px solid var(--line);padding:12px 28px 28px;display:none;flex-direction:column;z-index:49}
+    .mobile-menu.open{display:flex}
+    .mobile-menu a{padding:14px 0;border-bottom:1px solid var(--line);font-family:Unbounded,sans-serif;font-weight:600;font-size:20px}
+    .mobile-menu .btn{margin-top:18px;justify-content:center;font-family:Manrope,sans-serif;font-size:16px;border-bottom:0}
+    .cat-grid{grid-template-columns:1fr 1fr}
+    .combos,.delivery,.hours-grid{grid-template-columns:1fr}
+    .rev-grid{grid-template-columns:1fr}
+    .combo-img{min-height:420px}
+    .delivery-img::before{background:linear-gradient(180deg,rgba(47,123,255,1),rgba(47,123,255,0) 30%)}
+    .rating{position:relative;right:auto;top:auto;margin:0 clamp(28px,6vw,76px) clamp(28px,6vw,76px);align-self:flex-start}
+    .hero-frame{flex-direction:column;align-items:stretch;justify-content:flex-end}
+  }
+  @media (max-width:620px){
+    .wrap{padding:0 16px}
+    body{font-size:16px}
+    .hero{padding-top:12px}
+    .hero-frame{border-radius:22px;min-height:auto;padding-top:260px}
+    .hero-frame img{height:55%;object-position:80% 50%}
+    .hero-frame::after{background:linear-gradient(0deg,rgba(7,11,24,.98) 0%,rgba(7,11,24,.85) 52%,rgba(7,11,24,.1) 100%)}
+    .hero-ctas .btn{width:100%;justify-content:center}
+    .rating{margin:0 22px 22px}
+    .cat-grid{grid-template-columns:1fr}
+    .cat{min-height:200px}
+    .combo{flex-wrap:wrap}
+    .combo .cta{margin-left:78px}
+    .dsteps{grid-template-columns:1fr}
+    .delivery-img{min-height:300px}
+    footer{padding-bottom:110px}
+    .fab{right:16px;bottom:16px}
+    .proposal{font-size:12px}
+  }
+  @media (prefers-reduced-motion:reduce){
+    *,*::before,*::after{animation:none!important;transition:none!important}
+    .reveal{opacity:1;transform:none}
+    html{scroll-behavior:auto}
+  }
+</style>
+</head>
+<body class="locked">
+<div class="sky" aria-hidden="true"></div>
+
+<!-- Age gate -->
+<div class="gate" id="gate" role="dialog" aria-modal="true" aria-labelledby="gateTitle">
+  <div class="gate-card">
+    <span class="logo-mark">SK<i>YY</i></span>
+    <h2 id="gateTitle">Você tem 18 anos ou mais?</h2>
+    <p>Este site contém bebidas alcoólicas. A venda é proibida para menores de 18 anos.</p>
+    <div class="gate-actions">
+      <button class="btn btn-primary" id="gateYes">Sim, tenho 18+</button>
+      <button class="btn btn-ghost" id="gateNo">Não</button>
+    </div>
+    <p class="gate-no" id="gateMsg">Que pena! Volte quando completar 18 anos. 💙</p>
+  </div>
+</div>
+
+<div class="proposal">✦ Prévia exclusiva de proposta — <b>conceito de site para a Skyy Distribuidora</b></div>
+
+<header class="nav" id="nav">
+  <div class="wrap">
+    <a href="#topo" class="logo" aria-label="Skyy Distribuidora — início">
+      <span><span class="logo-mark">SK<i>YY</i></span><small>Distribuidora · Adega</small></span>
+    </a>
+    <nav class="menu" aria-label="Principal">
+      <a href="#bebidas">Bebidas</a>
+      <a href="#combos">Combos</a>
+      <a href="#delivery">Delivery</a>
+      <a href="#horarios">Horários</a>
+    </nav>
+    <a class="btn btn-primary" data-wa="Olá, Skyy! Vim pelo site e quero fazer um pedido." href="#">
+      <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91S17.5 2 12.04 2Zm5.8 14.03c-.25.69-1.44 1.32-1.98 1.37-.51.05-.99.24-3.33-.69-2.81-1.11-4.6-3.98-4.74-4.17-.14-.18-1.12-1.49-1.12-2.85 0-1.35.71-2.02.96-2.29.25-.28.55-.35.73-.35l.53.01c.17.01.4-.06.62.48.23.55.78 1.9.85 2.04.07.14.11.3.02.48-.09.18-.14.3-.28.46-.14.16-.29.36-.41.48-.14.14-.28.29-.12.57.16.28.71 1.17 1.53 1.9 1.05.94 1.94 1.23 2.22 1.37.28.14.44.12.6-.07.16-.18.69-.81.88-1.09.18-.28.37-.23.62-.14.25.09 1.6.76 1.88.9.28.14.46.21.53.32.07.12.07.67-.18 1.36Z"/></svg>
+      Pedir agora
+    </a>
+    <button class="burger" id="burger" aria-label="Abrir menu" aria-expanded="false" aria-controls="mobileMenu">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M4 8h16M4 16h16"/></svg>
+    </button>
+  </div>
+</header>
+<nav class="mobile-menu" id="mobileMenu" aria-label="Menu móvel">
+  <a href="#bebidas">Bebidas</a>
+  <a href="#combos">Combos</a>
+  <a href="#delivery">Delivery</a>
+  <a href="#horarios">Horários & endereço</a>
+  <a class="btn btn-primary" data-wa="Olá, Skyy! Vim pelo site e quero fazer um pedido." href="#">Pedir pelo WhatsApp</a>
+</nav>
+
+<main id="topo">
+  <div class="hero">
+    <div class="wrap">
+      <div class="hero-frame">
+        <img src="assets/hero.jpg" alt="Balcão de adega à noite com geladeira cheia de cervejas e garrafas iluminadas em azul" onerror="this.remove()">
+        <div class="hero-copy">
+          <div class="hero-meta">
+            <span class="status" id="statusPill"><span class="dot"></span><span id="statusText">Consultando horário…</span></span>
+            <span class="eyebrow">Santa Terezinha · SBC</span>
+          </div>
+          <h1>Gelada, rápida e do jeito que o <span class="grad">rolê pede.</span></h1>
+          <p class="lead">Cervejas trincando, destilados, energéticos, gelo, carvão e congelados. Peça pelo WhatsApp e receba em casa — ou passe aqui e retire.</p>
+          <div class="hero-ctas">
+            <a class="btn btn-primary" data-wa="Olá, Skyy! Vim pelo site e quero fazer um pedido para entrega." href="#">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91S17.5 2 12.04 2Z"/></svg>
+              Pedir delivery
+            </a>
+            <a class="btn btn-ghost" href="#bebidas">Ver o que tem</a>
+          </div>
+        </div>
+        <div class="rating">
+          <b>5,0</b>
+          <div><div class="stars" aria-label="5 de 5 estrelas">★★★★★</div><small>Nota máxima no Google</small></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="marquee" aria-hidden="true">
+    <div class="marquee-track">
+      <span>Cerveja trincando</span><span>Destilados</span><span>Energéticos</span><span>Gelo</span><span>Carvão</span><span>Congelados</span><span>Delivery</span><span>Retirada no balcão</span>
+      <span>Cerveja trincando</span><span>Destilados</span><span>Energéticos</span><span>Gelo</span><span>Carvão</span><span>Congelados</span><span>Delivery</span><span>Retirada no balcão</span>
+    </div>
+  </div>
+
+  <!-- CATEGORIES -->
+  <section id="bebidas">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <div>
+          <span class="eyebrow">O que tem na Skyy</span>
+          <h2>Tudo pro seu rolê <span class="grad">num só lugar.</span></h2>
+        </div>
+        <p>Do churrasco de domingo à resenha de sexta: escolha a categoria e já fale com a gente pelo WhatsApp.</p>
+      </div>
+      <div class="cat-grid">
+        <a class="cat reveal" href="#" data-wa="Olá, Skyy! Quero saber das cervejas geladas disponíveis." style="--glow:rgba(255,180,61,.35)">
+          <div class="ic" style="color:var(--amber)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M6 8h9v11a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2V8Z"/><path d="M15 10h2a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2h-2"/><path d="M6 8a3 3 0 0 1 3-4c.8-1 2-1.5 3-1 1.4-.4 3 .6 3 2.2V8"/></svg></div>
+          <h3>Cervejas</h3><p>Long neck, lata e litrão — sempre geladas.</p>
+          <span class="go"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </a>
+        <a class="cat reveal" href="#" data-wa="Olá, Skyy! Quero saber dos destilados (vodka, whisky, gin)." style="--glow:rgba(127,227,255,.35)">
+          <div class="ic" style="color:var(--cyan)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M10 2h4v4l1.5 2.5A4 4 0 0 1 16 10.6V20a2 2 0 0 1-2 2h-4a2 2 0 0 1-2-2v-9.4a4 4 0 0 1 .5-2.1L10 6V2Z"/><path d="M8 13h8"/></svg></div>
+          <h3>Destilados</h3><p>Vodka, whisky, gin, cachaça e licores.</p>
+          <span class="go"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </a>
+        <a class="cat reveal" href="#" data-wa="Olá, Skyy! Quero saber dos energéticos e refrigerantes." style="--glow:rgba(59,227,139,.3)">
+          <div class="ic" style="color:#3BE38B"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="7" y="3" width="10" height="18" rx="2.5"/><path d="M7 7h10M7 17h10"/><path d="m12.5 9-2 3h3l-2 3"/></svg></div>
+          <h3>Energéticos & refris</h3><p>Pra misturar, gelar e animar a noite.</p>
+          <span class="go"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </a>
+        <a class="cat reveal" href="#" data-wa="Olá, Skyy! Preciso de gelo. Quais opções vocês têm?" style="--glow:rgba(230,248,255,.3)">
+          <div class="ic" style="color:var(--ice)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="m12 2 8 4.5v9L12 20l-8-4.5v-9L12 2Z"/><path d="M12 11 4 6.5M12 11l8-4.5M12 11v9"/></svg></div>
+          <h3>Gelo</h3><p>Pacote, cubo e o que mais o seu cooler pedir.</p>
+          <span class="go"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </a>
+        <a class="cat reveal" href="#" data-wa="Olá, Skyy! Quero carvão para churrasco." style="--glow:rgba(255,107,107,.3)">
+          <div class="ic" style="color:#FF8A6B"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 22c4 0 7-2.7 7-6.5 0-3.6-2.6-5.7-4-8.5-1 2-2 3-3.5 3.5C12 7 11 4 8.5 2 9 6 5 8.5 5 15.5 5 19.3 8 22 12 22Z"/></svg></div>
+          <h3>Carvão</h3><p>Churrasco sem correria de última hora.</p>
+          <span class="go"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </a>
+        <a class="cat reveal" href="#" data-wa="Olá, Skyy! Quero saber dos congelados disponíveis." style="--glow:rgba(47,123,255,.4)">
+          <div class="ic" style="color:#86B2FF"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 2v20M4.5 6.5l15 11M19.5 6.5l-15 11"/><path d="m9 3 3 2 3-2M9 21l3-2 3 2"/></svg></div>
+          <h3>Congelados</h3><p>Petiscos e salgados prontos pro seu evento.</p>
+          <span class="go"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- COMBOS -->
+  <section id="combos" style="padding-top:0">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <div>
+          <span class="eyebrow">Combos</span>
+          <h2>Monte o combo e <span class="grad">a gente separa.</span></h2>
+        </div>
+        <p>Escolha uma ideia, mande no WhatsApp e receba tudo junto — gelado e pronto pra abrir.</p>
+      </div>
+      <div class="combos">
+        <div class="combo-img reveal">
+          <img src="assets/combo.jpg" alt="Combo com garrafa de vodka, energéticos, gelo e copos com drink azul" loading="lazy" onerror="this.remove()">
+          <span class="tag">O mais pedido 🔥</span>
+        </div>
+        <div class="combo-list">
+          <a class="combo reveal" href="#" data-wa="Olá, Skyy! Quero montar o Combo Rolê (destilado + energéticos + gelo). Qual o valor?">
+            <span class="num">01</span>
+            <div><h3>Combo Rolê</h3><p>1 destilado + energéticos + gelo. O clássico da sexta.</p></div>
+            <span class="cta">Montar <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+          </a>
+          <a class="combo reveal" href="#" data-wa="Olá, Skyy! Quero montar o Combo Churrasco (cervejas + carvão + gelo). Qual o valor?">
+            <span class="num">02</span>
+            <div><h3>Combo Churrasco</h3><p>Cervejas geladas + carvão + gelo. Só falta a carne.</p></div>
+            <span class="cta">Montar <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+          </a>
+          <a class="combo reveal" href="#" data-wa="Olá, Skyy! Quero montar o Combo Resenha (cervejas + petiscos congelados). Qual o valor?">
+            <span class="num">03</span>
+            <div><h3>Combo Resenha</h3><p>Cervejas + petiscos congelados pra galera.</p></div>
+            <span class="cta">Montar <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+          </a>
+          <a class="combo reveal" href="#" data-wa="Olá, Skyy! Vou fazer um evento e quero um orçamento de bebidas.">
+            <span class="num">04</span>
+            <div><h3>Festa & eventos</h3><p>Aniversário, confraternização ou open bar? Pede um orçamento.</p></div>
+            <span class="cta">Orçar <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+          </a>
+          <p class="combo-note reveal">Valores e marcas sob consulta — a gente monta do jeito que você preferir.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DELIVERY -->
+  <section id="delivery" style="padding-top:0">
+    <div class="wrap">
+      <div class="delivery reveal">
+        <div class="delivery-copy">
+          <span class="eyebrow">Delivery</span>
+          <h2>Acabou o gelo? A gente leva.</h2>
+          <p>Ficou sem bebida no meio da festa? Chama no WhatsApp que a Skyy resolve — rapidinho e geladinho, direto na sua porta.</p>
+          <div class="dsteps">
+            <div class="dstep"><b>01</b><span>Mande seu pedido no WhatsApp</span></div>
+            <div class="dstep"><b>02</b><span>A gente confirma e separa tudo gelado</span></div>
+            <div class="dstep"><b>03</b><span>Receba em casa ou retire no balcão</span></div>
+          </div>
+          <a class="btn btn-ice" data-wa="Olá, Skyy! Quero pedir delivery. Vocês entregam no meu endereço?" href="#">Pedir delivery agora</a>
+        </div>
+        <div class="delivery-img">
+          <img src="assets/gelada.jpg" alt="Balde de metal cheio de gelo com cervejas geladas" loading="lazy" onerror="this.remove()">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- REVIEWS -->
+  <section style="padding-top:0">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <div>
+          <span class="eyebrow">Quem compra, aprova</span>
+          <h2>Nota <span class="grad">máxima</span> no Google.</h2>
+        </div>
+        <p>O que os clientes dizem sobre a Skyy.</p>
+      </div>
+      <div class="rev-grid">
+        <div class="rev score reveal"><b>5,0</b><div class="stars">★★★★★</div><span>14 avaliações no Google</span></div>
+        <div class="rev reveal"><q>Um lugar maravilhoso, atendimento de excelência.</q><div class="who"><span class="g">G</span>Avaliação no Google</div></div>
+        <div class="rev reveal"><q>Ótimo atendimento e excelentes valores 🚀</q><div class="who"><span class="g">G</span>Avaliação no Google</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOURS + VISIT -->
+  <section id="horarios" style="padding-top:0">
+    <div class="wrap hours-grid">
+      <div class="hours-card reveal">
+        <span class="eyebrow">Horários</span>
+        <h2>Aberto quando o rolê <span class="grad">acontece.</span></h2>
+        <ul class="hours" id="hours">
+          <li data-d="1" class="off"><span>Segunda</span><span>Fechado</span></li>
+          <li data-d="2"><span>Terça</span><span>16h – 23h</span></li>
+          <li data-d="3"><span>Quarta</span><span>16h – 23h</span></li>
+          <li data-d="4"><span>Quinta</span><span>16h – 23h</span></li>
+          <li data-d="5"><span>Sexta</span><span>16h – 0h</span></li>
+          <li data-d="6"><span>Sábado</span><span>12h – 0h</span></li>
+          <li data-d="0"><span>Domingo</span><span>12h – 20h</span></li>
+        </ul>
+      </div>
+      <div class="info-card reveal">
+        <div class="info">
+          <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21Z"/><circle cx="12" cy="9.5" r="2.5"/></svg><p><b>Endereço</b><a href="https://www.google.com/maps/search/?api=1&query=Skyy+Distribuidora+Adega+e+congelados+R.+Tiradentes+1335+S%C3%A3o+Bernardo+do+Campo" target="_blank" rel="noopener">R. Tiradentes, 1335 · Santa Terezinha<br>São Bernardo do Campo – SP · 09780-285</a></p></div>
+          <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg><p><b>Telefone</b><a href="tel:+551141292205">(11) 4129-2205</a></p></div>
+        </div>
+        <div class="pays"><span>💳 Crédito</span><span>💳 Débito</span><span>📲 Aproximação</span><span>🛵 Delivery</span><span>🏪 Retirada</span></div>
+        <div class="map"><iframe title="Mapa da Skyy Distribuidora" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://maps.google.com/maps?q=R.+Tiradentes,+1335+-+Santa+Terezinha,+S%C3%A3o+Bernardo+do+Campo+-+SP,+09780-285&z=16&output=embed"></iframe></div>
+      </div>
+    </div>
+  </section>
+
+  <div class="cta-band">
+    <div class="wrap">
+      <div class="band reveal">
+        <h2>Bateu a vontade? <span class="grad">Chama a Skyy.</span></h2>
+        <a class="btn btn-primary" data-wa="Olá, Skyy! Vim pelo site e quero fazer um pedido." href="#">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91S17.5 2 12.04 2Z"/></svg>
+          Pedir pelo WhatsApp
+        </a>
+      </div>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <a href="#topo" class="logo" aria-label="Skyy — voltar ao topo"><span><span class="logo-mark">SK<i>YY</i></span><small>Distribuidora · Adega · Congelados</small></span></a>
+    <span>© 2026 Skyy Distribuidora, Adega e Congelados · R. Tiradentes, 1335 – São Bernardo do Campo</span>
+    <p class="legal"><span>🔞</span> Venda proibida para menores de 18 anos. Se beber, não dirija. Aprecie com moderação.</p>
+  </div>
+</footer>
+
+<a class="fab" href="#" data-wa="Olá, Skyy! Vim pelo site e quero fazer um pedido." aria-label="Pedir pelo WhatsApp">
+  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91S17.5 2 12.04 2Zm5.8 14.03c-.25.69-1.44 1.32-1.98 1.37-.51.05-.99.24-3.33-.69-2.81-1.11-4.6-3.98-4.74-4.17-.14-.18-1.12-1.49-1.12-2.85 0-1.35.71-2.02.96-2.29.25-.28.55-.35.73-.35l.53.01c.17.01.4-.06.62.48.23.55.78 1.9.85 2.04.07.14.11.3.02.48-.09.18-.14.3-.28.46-.14.16-.29.36-.41.48-.14.14-.28.29-.12.57.16.28.71 1.17 1.53 1.9 1.05.94 1.94 1.23 2.22 1.37.28.14.44.12.6-.07.16-.18.69-.81.88-1.09.18-.28.37-.23.62-.14.25.09 1.6.76 1.88.9.28.14.46.21.53.32.07.12.07.67-.18 1.36Z"/></svg>
+</a>
+
+<script>
+  // Número do WhatsApp da loja (confirmar com o cliente)
+  const WA = '551141292205';
+  document.querySelectorAll('[data-wa]').forEach(a => {
+    a.href = 'https://wa.me/' + WA + '?text=' + encodeURIComponent(a.dataset.wa);
+    a.target = '_blank'; a.rel = 'noopener';
+  });
+
+  // Age gate
+  const gate = document.getElementById('gate');
+  const ok = (() => { try { return localStorage.getItem('skyy18') === '1'; } catch (e) { return false; } })();
+  if (ok) { gate.hidden = true; document.body.classList.remove('locked'); }
+  document.getElementById('gateYes').addEventListener('click', () => {
+    try { localStorage.setItem('skyy18', '1'); } catch (e) {}
+    gate.hidden = true; document.body.classList.remove('locked');
+  });
+  document.getElementById('gateNo').addEventListener('click', () => { document.getElementById('gateMsg').style.display = 'block'; });
+
+  // Open / closed status (horário de São Paulo)
+  const HOURS = {0:[12,20],1:null,2:[16,23],3:[16,23],4:[16,23],5:[16,24],6:[12,24]};
+  const NAMES = ['domingo','segunda','terça','quarta','quinta','sexta','sábado'];
+  const fmt = h => (h % 24) + 'h';
+  function spNow(){
+    const p = Object.fromEntries(new Intl.DateTimeFormat('en-US',{timeZone:'America/Sao_Paulo',weekday:'short',hour:'numeric',minute:'numeric',hour12:false}).formatToParts(new Date()).map(x=>[x.type,x.value]));
+    const day = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'].indexOf(p.weekday);
+    return {day, h: (+p.hour % 24) + (+p.minute)/60};
+  }
+  function updateStatus(){
+    const {day,h} = spNow();
+    const pill = document.getElementById('statusPill'), txt = document.getElementById('statusText');
+    document.querySelectorAll('#hours li').forEach(li => li.classList.toggle('today', +li.dataset.d === day));
+    const t = HOURS[day];
+    if (t && h >= t[0] && h < t[1]) {
+      pill.className = 'status open'; txt.textContent = 'Aberto agora · até ' + fmt(t[1]);
+    } else {
+      let d = day, label = '';
+      if (t && h < t[0]) { label = 'hoje às ' + fmt(t[0]); }
+      else { for (let i = 1; i <= 7; i++) { d = (day + i) % 7; if (HOURS[d]) { label = (i === 1 ? 'amanhã' : NAMES[d]) + ' às ' + fmt(HOURS[d][0]); break; } } }
+      pill.className = 'status closed'; txt.textContent = 'Fechado · abre ' + label;
+    }
+  }
+  updateStatus(); setInterval(updateStatus, 60000);
+
+  // Nav + menu
+  const nav = document.getElementById('nav');
+  addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY > 10), {passive:true});
+  const burger = document.getElementById('burger'), mm = document.getElementById('mobileMenu');
+  burger.addEventListener('click', () => {
+    mm.style.top = nav.getBoundingClientRect().bottom + 'px';
+    const open = mm.classList.toggle('open');
+    burger.setAttribute('aria-expanded', open);
+  });
+  mm.querySelectorAll('a').forEach(a => a.addEventListener('click', () => { mm.classList.remove('open'); burger.setAttribute('aria-expanded', false); }));
+
+  // Reveal
+  const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }), {threshold:.12, rootMargin:'0px 0px -40px 0px'});
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+</script>
+</body>
+</html>
