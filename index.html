@@ -6,22 +6,25 @@
 <meta name="robots" content="noindex, nofollow, noarchive">
 <title>Skyy Distribuidora — Adega, bebidas geladas e congelados em São Bernardo</title>
 <meta name="description" content="Cervejas geladas, destilados, gelo, carvão e congelados no Santa Terezinha, São Bernardo do Campo. Delivery e retirada. Peça pelo WhatsApp.">
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🧊</text></svg>">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🍷</text></svg>">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;600;800&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
   :root{
-    --night:#070B18;
-    --night-2:#0D1430;
-    --night-3:#141E45;
-    --blue:#2F7BFF;
-    --cyan:#7FE3FF;
-    --ice:#E6F8FF;
+    --night:#08111F;
+    --night-2:#0F1E35;
+    --night-3:#16304F;
+    --navy:#1F3B5C;
+    --blue:#2C5585;
+    --cyan:#FFD27A;
+    --gold:#ECAB2F;
+    --wine:#A3253A;
+    --ice:#FFF6E3;
     --amber:#FFB43D;
-    --text:#E9EEFF;
-    --muted:#9AA6C8;
-    --line:rgba(160,185,255,.14);
+    --text:#EEF2F8;
+    --muted:#A3B0C4;
+    --line:rgba(236,171,47,.16);
     --radius:22px;
     --wrap:1240px;
     --ease:cubic-bezier(.2,.7,.2,1);
@@ -36,14 +39,14 @@
   .wrap{max-width:var(--wrap);margin:0 auto;padding:0 28px}
   h1,h2,h3{font-family:Unbounded,system-ui,sans-serif;font-weight:800;letter-spacing:-.03em;line-height:1.02}
   h2{font-size:clamp(32px,4.6vw,58px)}
-  .grad{background:linear-gradient(100deg,var(--cyan),var(--blue) 70%);-webkit-background-clip:text;background-clip:text;color:transparent}
+  .grad{background:linear-gradient(100deg,#FFE3A3,var(--gold) 70%);-webkit-background-clip:text;background-clip:text;color:transparent}
   .eyebrow{display:inline-flex;align-items:center;gap:10px;font-size:12.5px;letter-spacing:.2em;text-transform:uppercase;font-weight:700;color:var(--cyan)}
-  .eyebrow::before{content:"";width:22px;height:2px;background:linear-gradient(90deg,var(--cyan),var(--blue));border-radius:2px}
+  .eyebrow::before{content:"";width:22px;height:2px;background:linear-gradient(90deg,var(--cyan),var(--gold));border-radius:2px}
 
   /* starfield background */
   .sky{position:fixed;inset:0;z-index:-1;pointer-events:none;background:
-    radial-gradient(1200px 600px at 85% -10%,rgba(47,123,255,.22),transparent 60%),
-    radial-gradient(900px 500px at -10% 30%,rgba(127,227,255,.10),transparent 60%),
+    radial-gradient(1200px 600px at 85% -10%,rgba(44,85,133,.45),transparent 60%),
+    radial-gradient(900px 500px at -10% 30%,rgba(236,171,47,.08),transparent 60%),
     var(--night)}
   .sky::after{content:"";position:absolute;inset:0;opacity:.55;background-image:
     radial-gradient(1px 1px at 20px 30px,#fff,transparent),radial-gradient(1px 1px at 120px 80px,#cfe6ff,transparent),
@@ -51,18 +54,21 @@
     radial-gradient(1px 1px at 340px 220px,#fff,transparent),radial-gradient(1.2px 1.2px at 60px 260px,#e1efff,transparent);
     background-size:380px 300px}
 
-  .proposal{background:linear-gradient(90deg,#11204F,#1A2F6E);color:#DCE6FF;font-size:13px;text-align:center;padding:9px 16px}
+  .proposal{background:linear-gradient(90deg,#132842,#1F3B5C);color:#DCE6FF;font-size:13px;text-align:center;padding:9px 16px}
   .proposal b{color:var(--amber);font-weight:700}
 
   /* Nav */
-  .nav{position:sticky;top:0;z-index:50;background:rgba(7,11,24,.72);backdrop-filter:saturate(1.4) blur(16px);-webkit-backdrop-filter:saturate(1.4) blur(16px);border-bottom:1px solid transparent;transition:border-color .3s}
+  .nav{position:sticky;top:0;z-index:50;background:rgba(8,17,31,.72);backdrop-filter:saturate(1.4) blur(16px);-webkit-backdrop-filter:saturate(1.4) blur(16px);border-bottom:1px solid transparent;transition:border-color .3s}
   .nav.scrolled{border-bottom-color:var(--line)}
   .nav .wrap{display:flex;align-items:center;justify-content:space-between;height:76px;gap:24px}
   .logo{display:flex;align-items:center;gap:12px}
-  .logo-mark{font-family:Unbounded,sans-serif;font-weight:800;font-size:26px;letter-spacing:.02em;line-height:1;position:relative}
-  .logo-mark i{font-style:normal;color:var(--cyan)}
-  .logo-mark::after{content:"✦";position:absolute;top:-8px;right:-14px;font-size:12px;color:var(--amber)}
-  .logo small{display:block;font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);margin-top:4px;font-weight:600}
+  .seal{width:48px;height:48px;border-radius:50%;background:var(--navy);display:grid;place-items:center;flex:none;box-shadow:0 0 0 2px rgba(236,171,47,.55),0 8px 20px -8px rgba(0,0,0,.6)}
+  .seal svg{width:28px;height:28px}
+  .wm{display:flex;flex-direction:column;line-height:1}
+  .wm small{font-size:10.5px;letter-spacing:.42em;text-transform:uppercase;color:var(--cyan);font-weight:700;margin-bottom:5px}
+  .wm b{font-family:Unbounded,sans-serif;font-weight:800;font-size:24px;letter-spacing:.04em;color:var(--gold)}
+  .gate-seal{width:96px;height:96px;margin:0 auto}
+  .gate-seal svg{width:54px;height:54px}
   .menu{display:flex;gap:30px;font-size:15px;font-weight:600;color:#C9D3F2}
   .menu a{position:relative;padding:4px 0;transition:color .2s}
   .menu a:hover{color:#fff}
@@ -70,8 +76,8 @@
   .menu a:hover::after{transform:scaleX(1)}
   .btn{display:inline-flex;align-items:center;gap:10px;border-radius:999px;padding:14px 24px;font-weight:800;font-size:15px;transition:transform .25s var(--ease),box-shadow .25s,background .25s;white-space:nowrap;border:0;cursor:pointer}
   .btn svg{width:18px;height:18px;flex:none}
-  .btn-primary{background:linear-gradient(100deg,var(--blue),#5A9BFF);color:#fff;box-shadow:0 10px 30px -10px rgba(47,123,255,.8)}
-  .btn-primary:hover{transform:translateY(-2px);box-shadow:0 16px 36px -10px rgba(47,123,255,.95)}
+  .btn-primary{background:linear-gradient(100deg,var(--gold),#F7C65E);color:var(--night);box-shadow:0 10px 30px -10px rgba(236,171,47,.7)}
+  .btn-primary:hover{transform:translateY(-2px);box-shadow:0 16px 36px -10px rgba(236,171,47,.9)}
   .btn-ice{background:var(--ice);color:var(--night)}
   .btn-ice:hover{background:#fff;transform:translateY(-2px)}
   .btn-ghost{background:transparent;border:1.5px solid rgba(233,238,255,.35);color:#fff}
@@ -90,10 +96,10 @@
 
   /* Hero */
   .hero{padding:24px 0 0}
-  .hero-frame{position:relative;border-radius:30px;overflow:hidden;min-height:min(84vh,760px);display:flex;align-items:flex-end;background:linear-gradient(135deg,#14224F,#070B18);border:1px solid var(--line)}
+  .hero-frame{position:relative;border-radius:30px;overflow:hidden;min-height:min(84vh,760px);display:flex;align-items:flex-end;background:linear-gradient(135deg,#1F3B5C,#08111F);border:1px solid var(--line)}
   .hero-frame img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:75% 50%;transform:scale(1.05);animation:heroZoom 14s var(--ease) forwards}
   @keyframes heroZoom{to{transform:scale(1)}}
-  .hero-frame::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(7,11,24,.94) 0%,rgba(7,11,24,.7) 40%,rgba(7,11,24,.05) 75%),linear-gradient(0deg,rgba(7,11,24,.6),transparent 40%)}
+  .hero-frame::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(8,17,31,.94) 0%,rgba(8,17,31,.7) 40%,rgba(8,17,31,.05) 75%),linear-gradient(0deg,rgba(8,17,31,.6),transparent 40%)}
   .hero-copy{position:relative;z-index:2;padding:clamp(28px,6vw,76px);max-width:720px}
   .hero h1{font-size:clamp(38px,5vw,70px);margin:22px 0 22px}
   .hero p.lead{font-size:clamp(17px,1.5vw,20px);color:#C9D3F2;max-width:540px}
@@ -119,8 +125,8 @@
   /* Categories */
   .cat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
   .cat{position:relative;border-radius:var(--radius);padding:30px 28px;background:linear-gradient(160deg,var(--night-3),var(--night-2));border:1px solid var(--line);overflow:hidden;transition:transform .45s var(--ease),border-color .3s;isolation:isolate;min-height:230px;display:flex;flex-direction:column}
-  .cat::before{content:"";position:absolute;width:220px;height:220px;right:-70px;top:-70px;border-radius:50%;background:radial-gradient(circle,var(--glow,rgba(47,123,255,.35)),transparent 70%);z-index:-1;transition:transform .6s var(--ease)}
-  .cat:hover{transform:translateY(-6px);border-color:rgba(127,227,255,.4)}
+  .cat::before{content:"";position:absolute;width:220px;height:220px;right:-70px;top:-70px;border-radius:50%;background:radial-gradient(circle,var(--glow,rgba(44,85,133,.5)),transparent 70%);z-index:-1;transition:transform .6s var(--ease)}
+  .cat:hover{transform:translateY(-6px);border-color:rgba(236,171,47,.45)}
   .cat:hover::before{transform:scale(1.3)}
   .cat .ic{width:54px;height:54px;border-radius:16px;display:grid;place-items:center;background:rgba(255,255,255,.07);margin-bottom:auto}
   .cat .ic svg{width:28px;height:28px}
@@ -136,8 +142,8 @@
   .combo-img img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
   .combo-img .tag{position:absolute;left:22px;top:22px;background:var(--amber);color:var(--night);font-weight:800;font-size:13px;padding:8px 14px;border-radius:999px}
   .combo-list{display:grid;gap:16px}
-  .combo{display:flex;gap:20px;align-items:center;padding:24px 26px;border-radius:20px;background:rgba(20,30,69,.6);border:1px solid var(--line);transition:transform .35s var(--ease),background .3s,border-color .3s}
-  .combo:hover{transform:translateX(6px);background:rgba(28,42,96,.75);border-color:rgba(127,227,255,.35)}
+  .combo{display:flex;gap:20px;align-items:center;padding:24px 26px;border-radius:20px;background:rgba(22,48,79,.55);border:1px solid var(--line);transition:transform .35s var(--ease),background .3s,border-color .3s}
+  .combo:hover{transform:translateX(6px);background:rgba(31,59,92,.8);border-color:rgba(236,171,47,.4)}
   .combo .num{font-family:Unbounded,sans-serif;font-size:30px;font-weight:800;color:transparent;-webkit-text-stroke:1.2px var(--cyan);flex:none;width:58px}
   .combo h3{font-size:20px}
   .combo p{color:var(--muted);font-size:15px;margin-top:4px}
@@ -146,19 +152,18 @@
   .combo-note{color:var(--muted);font-size:14px;margin-top:6px}
 
   /* Delivery */
-  .delivery{position:relative;border-radius:30px;overflow:hidden;display:grid;grid-template-columns:1.1fr 1fr;background:linear-gradient(120deg,#123AA8,#2F7BFF 60%,#58B8FF);color:#fff}
+  .delivery{position:relative;border-radius:30px;overflow:hidden;display:grid;grid-template-columns:1.1fr 1fr;background:linear-gradient(120deg,#16304F,#1F3B5C 55%,#2C5585);color:#fff;border:1px solid var(--line)}
   .delivery-copy{padding:clamp(34px,5vw,68px)}
-  .delivery-copy .eyebrow{color:#fff}
-  .delivery-copy .eyebrow::before{background:#fff}
+  .delivery-copy .eyebrow{color:var(--cyan)}
   .delivery-copy h2{margin-top:16px}
   .delivery-copy p{color:rgba(255,255,255,.85);margin-top:16px;max-width:460px}
   .dsteps{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:30px 0 32px}
-  .dstep{background:rgba(7,11,24,.22);border:1px solid rgba(255,255,255,.18);border-radius:16px;padding:16px}
+  .dstep{background:rgba(8,17,31,.22);border:1px solid rgba(255,255,255,.18);border-radius:16px;padding:16px}
   .dstep b{font-family:Unbounded,sans-serif;font-size:13px;color:var(--ice);display:block;margin-bottom:6px}
   .dstep span{font-size:14.5px;font-weight:600;line-height:1.35;display:block}
   .delivery-img{position:relative;min-height:420px}
   .delivery-img img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
-  .delivery-img::before{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(90deg,rgba(47,123,255,1),rgba(47,123,255,0) 30%)}
+  .delivery-img::before{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(90deg,rgba(36,74,114,1),rgba(36,74,114,0) 30%)}
 
   /* Hours */
   .hours-grid{display:grid;grid-template-columns:1fr 1.1fr;gap:22px}
@@ -167,7 +172,7 @@
   .hours{list-style:none;display:grid;gap:4px}
   .hours li{display:flex;justify-content:space-between;padding:13px 16px;border-radius:12px;font-weight:600;color:#C9D3F2}
   .hours li span:last-child{font-variant-numeric:tabular-nums}
-  .hours li.today{background:rgba(127,227,255,.1);color:#fff;outline:1px solid rgba(127,227,255,.35)}
+  .hours li.today{background:rgba(236,171,47,.12);color:#fff;outline:1px solid rgba(236,171,47,.45)}
   .hours li.off span:last-child{color:#FF9B9B}
   .info-card{border-radius:26px;background:rgba(13,20,48,.6);border:1px solid var(--line);padding:clamp(28px,4vw,48px);display:flex;flex-direction:column;gap:22px}
   .info{display:grid;gap:20px}
@@ -181,20 +186,27 @@
   .map{border-radius:20px;overflow:hidden;min-height:260px;flex:1;border:1px solid var(--line)}
   .map iframe{width:100%;height:100%;min-height:260px;border:0;filter:invert(.9) hue-rotate(180deg) saturate(.6) brightness(.95)}
 
+  /* Real photos */
+  .gallery{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}
+  .shot{position:relative;border-radius:18px;overflow:hidden;background:var(--night-3);border:1px solid var(--line);aspect-ratio:1/1;margin:0}
+  .shot img{width:100%;height:100%;object-fit:cover;transition:transform .8s var(--ease)}
+  .shot:hover img{transform:scale(1.05)}
+  .shot figcaption{position:absolute;left:0;right:0;bottom:0;padding:28px 14px 12px;font-size:13.5px;font-weight:700;background:linear-gradient(0deg,rgba(8,17,31,.92),transparent)}
   /* Reviews */
   .rev-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:18px}
-  .rev{border-radius:var(--radius);padding:30px;background:rgba(20,30,69,.55);border:1px solid var(--line);display:flex;flex-direction:column;justify-content:space-between;gap:24px}
+  .rev{border-radius:var(--radius);padding:30px;background:rgba(22,48,79,.5);border:1px solid var(--line);display:flex;flex-direction:column;justify-content:space-between;gap:24px}
   .rev q{font-family:Unbounded,sans-serif;font-weight:600;font-size:clamp(19px,1.8vw,24px);line-height:1.3;letter-spacing:-.02em}
   .rev .who{display:flex;align-items:center;gap:10px;font-size:14px;color:var(--muted)}
   .g{width:28px;height:28px;border-radius:50%;background:#fff;display:grid;place-items:center;font-weight:800;font-size:14px;color:#4285F4}
-  .rev.score{background:linear-gradient(150deg,#1E3D9C,#2F7BFF);border:0;justify-content:center;align-items:flex-start}
+  .rev.score{background:linear-gradient(150deg,var(--gold),#F7CC6B);color:var(--night);border:0;justify-content:center;align-items:flex-start}
+  .rev.score .stars{color:var(--wine)}
   .rev.score b{font-family:Unbounded,sans-serif;font-size:clamp(64px,7vw,96px);line-height:.9}
   .rev.score .stars{font-size:22px;margin:10px 0 6px}
-  .rev.score span{color:rgba(255,255,255,.85)}
+  .rev.score span{color:rgba(8,17,31,.75);font-weight:600}
 
   /* CTA */
   .cta-band{padding:0 0 clamp(80px,10vw,120px)}
-  .band{border-radius:30px;padding:clamp(40px,6vw,80px);display:flex;justify-content:space-between;align-items:center;gap:32px;flex-wrap:wrap;background:radial-gradient(600px 300px at 90% 0%,rgba(127,227,255,.25),transparent 70%),linear-gradient(140deg,var(--night-3),#0A1230);border:1px solid var(--line)}
+  .band{border-radius:30px;padding:clamp(40px,6vw,80px);display:flex;justify-content:space-between;align-items:center;gap:32px;flex-wrap:wrap;background:radial-gradient(600px 300px at 90% 0%,rgba(236,171,47,.22),transparent 70%),linear-gradient(140deg,var(--night-3),#0A1230);border:1px solid var(--line)}
   .band h2{max-width:640px}
 
   footer{border-top:1px solid var(--line);padding:48px 0 40px;font-size:14px;color:var(--muted)}
@@ -212,7 +224,6 @@
   .gate{position:fixed;inset:0;z-index:100;display:grid;place-items:center;padding:20px;background:rgba(4,7,16,.82);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px)}
   .gate[hidden]{display:none}
   .gate-card{max-width:440px;width:100%;text-align:center;border-radius:26px;padding:38px 30px;background:linear-gradient(160deg,var(--night-3),var(--night-2));border:1px solid var(--line);box-shadow:0 40px 80px -30px rgba(0,0,0,.8)}
-  .gate-card .logo-mark{font-size:34px;display:inline-block}
   .gate-card h2{font-size:24px;margin:22px 0 10px}
   .gate-card p{color:var(--muted);font-size:15px}
   .gate-actions{display:flex;gap:12px;justify-content:center;margin-top:26px;flex-wrap:wrap}
@@ -225,15 +236,16 @@
   @media (max-width:1020px){
     .menu,.nav .btn{display:none}
     .burger{display:grid;place-items:center}
-    .mobile-menu{position:fixed;left:0;right:0;top:76px;background:rgba(7,11,24,.97);border-bottom:1px solid var(--line);padding:12px 28px 28px;display:none;flex-direction:column;z-index:49}
+    .mobile-menu{position:fixed;left:0;right:0;top:76px;background:rgba(8,17,31,.97);border-bottom:1px solid var(--line);padding:12px 28px 28px;display:none;flex-direction:column;z-index:49}
     .mobile-menu.open{display:flex}
     .mobile-menu a{padding:14px 0;border-bottom:1px solid var(--line);font-family:Unbounded,sans-serif;font-weight:600;font-size:20px}
     .mobile-menu .btn{margin-top:18px;justify-content:center;font-family:Manrope,sans-serif;font-size:16px;border-bottom:0}
     .cat-grid{grid-template-columns:1fr 1fr}
     .combos,.delivery,.hours-grid{grid-template-columns:1fr}
     .rev-grid{grid-template-columns:1fr}
+    .gallery{grid-template-columns:1fr 1fr}
     .combo-img{min-height:420px}
-    .delivery-img::before{background:linear-gradient(180deg,rgba(47,123,255,1),rgba(47,123,255,0) 30%)}
+    .delivery-img::before{background:linear-gradient(180deg,rgba(36,74,114,1),rgba(36,74,114,0) 30%)}
     .rating{position:relative;right:auto;top:auto;margin:0 clamp(28px,6vw,76px) clamp(28px,6vw,76px);align-self:flex-start}
     .hero-frame{flex-direction:column;align-items:stretch;justify-content:flex-end}
   }
@@ -243,7 +255,7 @@
     .hero{padding-top:12px}
     .hero-frame{border-radius:22px;min-height:auto;padding-top:260px}
     .hero-frame img{height:55%;object-position:80% 50%}
-    .hero-frame::after{background:linear-gradient(0deg,rgba(7,11,24,.98) 0%,rgba(7,11,24,.85) 52%,rgba(7,11,24,.1) 100%)}
+    .hero-frame::after{background:linear-gradient(0deg,rgba(8,17,31,.98) 0%,rgba(8,17,31,.85) 52%,rgba(8,17,31,.1) 100%)}
     .hero-ctas .btn{width:100%;justify-content:center}
     .rating{margin:0 22px 22px}
     .cat-grid{grid-template-columns:1fr}
@@ -269,7 +281,7 @@
 <!-- Age gate -->
 <div class="gate" id="gate" role="dialog" aria-modal="true" aria-labelledby="gateTitle">
   <div class="gate-card">
-    <span class="logo-mark">SK<i>YY</i></span>
+    <span class="seal gate-seal"><svg viewBox="0 0 32 32" fill="none" aria-hidden="true"><path d="M19.6 2.8l6.6 3.6-5 7.4-3.6-2z" fill="#ECAB2F"/><path d="M17.4 12.4c-.4 1.2-.9 2.2-1.6 2.9" stroke="#C0283F" stroke-width="1.6" stroke-linecap="round"/><path d="M9.8 16.2h10.4c-.3 3.3-2.4 5.6-5.2 5.6s-4.9-2.3-5.2-5.6Z" fill="#C0283F"/><path d="M9 13h12c0 5.8-2.6 9.3-6 9.3S9 18.8 9 13ZM15 22.3V27M11 27.4h8" stroke="#ECAB2F" stroke-width="1.5" stroke-linecap="round"/></svg></span>
     <h2 id="gateTitle">Você tem 18 anos ou mais?</h2>
     <p>Este site contém bebidas alcoólicas. A venda é proibida para menores de 18 anos.</p>
     <div class="gate-actions">
@@ -285,12 +297,13 @@
 <header class="nav" id="nav">
   <div class="wrap">
     <a href="#topo" class="logo" aria-label="Skyy Distribuidora — início">
-      <span><span class="logo-mark">SK<i>YY</i></span><small>Distribuidora · Adega</small></span>
+      <span class="seal"><svg viewBox="0 0 32 32" fill="none" aria-hidden="true"><path d="M19.6 2.8l6.6 3.6-5 7.4-3.6-2z" fill="#ECAB2F"/><path d="M17.4 12.4c-.4 1.2-.9 2.2-1.6 2.9" stroke="#C0283F" stroke-width="1.6" stroke-linecap="round"/><path d="M9.8 16.2h10.4c-.3 3.3-2.4 5.6-5.2 5.6s-4.9-2.3-5.2-5.6Z" fill="#C0283F"/><path d="M9 13h12c0 5.8-2.6 9.3-6 9.3S9 18.8 9 13ZM15 22.3V27M11 27.4h8" stroke="#ECAB2F" stroke-width="1.5" stroke-linecap="round"/></svg></span><span class="wm"><small>Adega</small><b>SKYY</b></span>
     </a>
     <nav class="menu" aria-label="Principal">
       <a href="#bebidas">Bebidas</a>
       <a href="#combos">Combos</a>
       <a href="#delivery">Delivery</a>
+      <a href="#loja">Loja</a>
       <a href="#horarios">Horários</a>
     </nav>
     <a class="btn btn-primary" data-wa="Olá, Skyy! Vim pelo site e quero fazer um pedido." href="#">
@@ -321,7 +334,7 @@
             <span class="eyebrow">Santa Terezinha · SBC</span>
           </div>
           <h1>Gelada, rápida e do jeito que o <span class="grad">rolê pede.</span></h1>
-          <p class="lead">Cervejas trincando, destilados, energéticos, gelo, carvão e congelados. Peça pelo WhatsApp e receba em casa — ou passe aqui e retire.</p>
+          <p class="lead">Cervejas trincando, destilados, energéticos, gelo, carvão e congelados. Peça pelo WhatsApp e receba em casa — ou cola aqui e curte nas mesas da calçada.</p>
           <div class="hero-ctas">
             <a class="btn btn-primary" data-wa="Olá, Skyy! Vim pelo site e quero fazer um pedido para entrega." href="#">
               <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91S17.5 2 12.04 2Z"/></svg>
@@ -373,7 +386,7 @@
         </a>
         <a class="cat reveal" href="#" data-wa="Olá, Skyy! Preciso de gelo. Quais opções vocês têm?" style="--glow:rgba(230,248,255,.3)">
           <div class="ic" style="color:var(--ice)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="m12 2 8 4.5v9L12 20l-8-4.5v-9L12 2Z"/><path d="M12 11 4 6.5M12 11l8-4.5M12 11v9"/></svg></div>
-          <h3>Gelo</h3><p>Pacote, cubo e o que mais o seu cooler pedir.</p>
+          <h3>Gelo & gelo de sabor</h3><p>Gelo comum e os gelos de sabor que combinam com o seu drink.</p>
           <span class="go"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
         </a>
         <a class="cat reveal" href="#" data-wa="Olá, Skyy! Quero carvão para churrasco." style="--glow:rgba(255,107,107,.3)">
@@ -406,9 +419,9 @@
           <span class="tag">O mais pedido 🔥</span>
         </div>
         <div class="combo-list">
-          <a class="combo reveal" href="#" data-wa="Olá, Skyy! Quero montar o Combo Rolê (destilado + energéticos + gelo). Qual o valor?">
+          <a class="combo reveal" href="#" data-wa="Olá, Skyy! Quero montar o Combo Rolê (whisky ou vodka + energético + gelo de sabor). Qual o valor?">
             <span class="num">01</span>
-            <div><h3>Combo Rolê</h3><p>1 destilado + energéticos + gelo. O clássico da sexta.</p></div>
+            <div><h3>Combo Rolê</h3><p>Whisky ou vodka + energético + gelos de sabor. O clássico da sexta.</p></div>
             <span class="cta">Montar <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
           </a>
           <a class="combo reveal" href="#" data-wa="Olá, Skyy! Quero montar o Combo Churrasco (cervejas + carvão + gelo). Qual o valor?">
@@ -454,6 +467,25 @@
     </div>
   </section>
 
+  <!-- REAL STORE -->
+  <section id="loja" style="padding-top:0">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <div>
+          <span class="eyebrow">Nossa loja</span>
+          <h2>Cola aqui na <span class="grad">Tiradentes.</span></h2>
+        </div>
+        <p>Geladeira cheia, combos montados na hora e mesas na calçada pra curtir com a galera.</p>
+      </div>
+      <div class="gallery">
+        <figure class="shot reveal"><img src="assets/loja-fachada.jpg" alt="Fachada da Adega Skyy com letreiro grafitado" loading="lazy"><figcaption>A nossa fachada</figcaption></figure>
+        <figure class="shot reveal"><img src="assets/loja-mesas.jpg" alt="Mesas de barril e cadeiras laranjas na calçada da adega" loading="lazy"><figcaption>Mesas na calçada</figcaption></figure>
+        <figure class="shot reveal"><img src="assets/loja-combo-whisky.jpg" alt="Combo de whisky com energético 2 litros e gelos de sabor" loading="lazy"><figcaption>Combo whisky + energético</figcaption></figure>
+        <figure class="shot reveal"><img src="assets/loja-combo-vodka.jpg" alt="Combo de vodka com energéticos em lata e gelos de sabor" loading="lazy"><figcaption>Combo vodka + energético</figcaption></figure>
+      </div>
+    </div>
+  </section>
+
   <!-- REVIEWS -->
   <section style="padding-top:0">
     <div class="wrap">
@@ -491,9 +523,9 @@
       <div class="info-card reveal">
         <div class="info">
           <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21Z"/><circle cx="12" cy="9.5" r="2.5"/></svg><p><b>Endereço</b><a href="https://www.google.com/maps/search/?api=1&query=Skyy+Distribuidora+Adega+e+congelados+R.+Tiradentes+1335+S%C3%A3o+Bernardo+do+Campo" target="_blank" rel="noopener">R. Tiradentes, 1335 · Santa Terezinha<br>São Bernardo do Campo – SP · 09780-285</a></p></div>
-          <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg><p><b>Telefone</b><a href="tel:+551141292205">(11) 4129-2205</a></p></div>
+          <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg><p><b>WhatsApp & telefone</b><a href="#" data-wa="Olá, Skyy! Vim pelo site.">(11) 94334-2205 · WhatsApp</a><br><a href="tel:+551141292205">(11) 4129-2205</a></p></div>
         </div>
-        <div class="pays"><span>💳 Crédito</span><span>💳 Débito</span><span>📲 Aproximação</span><span>🛵 Delivery</span><span>🏪 Retirada</span></div>
+        <div class="pays"><span>💳 Crédito</span><span>💳 Débito</span><span>📲 Aproximação</span><span>🛵 Delivery</span><span>🏪 Retirada</span><span>🪑 Mesas na calçada</span></div>
         <div class="map"><iframe title="Mapa da Skyy Distribuidora" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://maps.google.com/maps?q=R.+Tiradentes,+1335+-+Santa+Terezinha,+S%C3%A3o+Bernardo+do+Campo+-+SP,+09780-285&z=16&output=embed"></iframe></div>
       </div>
     </div>
@@ -514,7 +546,7 @@
 
 <footer>
   <div class="wrap">
-    <a href="#topo" class="logo" aria-label="Skyy — voltar ao topo"><span><span class="logo-mark">SK<i>YY</i></span><small>Distribuidora · Adega · Congelados</small></span></a>
+    <a href="#topo" class="logo" aria-label="Skyy — voltar ao topo"><span class="seal"><svg viewBox="0 0 32 32" fill="none" aria-hidden="true"><path d="M19.6 2.8l6.6 3.6-5 7.4-3.6-2z" fill="#ECAB2F"/><path d="M17.4 12.4c-.4 1.2-.9 2.2-1.6 2.9" stroke="#C0283F" stroke-width="1.6" stroke-linecap="round"/><path d="M9.8 16.2h10.4c-.3 3.3-2.4 5.6-5.2 5.6s-4.9-2.3-5.2-5.6Z" fill="#C0283F"/><path d="M9 13h12c0 5.8-2.6 9.3-6 9.3S9 18.8 9 13ZM15 22.3V27M11 27.4h8" stroke="#ECAB2F" stroke-width="1.5" stroke-linecap="round"/></svg></span><span class="wm"><small>Adega</small><b>SKYY</b></span></a>
     <span>© 2026 Skyy Distribuidora, Adega e Congelados · R. Tiradentes, 1335 – São Bernardo do Campo</span>
     <p class="legal"><span>🔞</span> Venda proibida para menores de 18 anos. Se beber, não dirija. Aprecie com moderação.</p>
   </div>
@@ -526,7 +558,7 @@
 
 <script>
   // Número do WhatsApp da loja (confirmar com o cliente)
-  const WA = '551141292205';
+  const WA = '5511943342205';
   document.querySelectorAll('[data-wa]').forEach(a => {
     a.href = 'https://wa.me/' + WA + '?text=' + encodeURIComponent(a.dataset.wa);
     a.target = '_blank'; a.rel = 'noopener';
